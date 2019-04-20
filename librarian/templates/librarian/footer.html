@@ -1,0 +1,30 @@
+{% load static %}
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" align="center" style="margin-bottom: 0px; background-color: #5AC8FA;">
+
+  <div class="container-fluid navbar-left">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'librarian:book_list' %}" style="color: #ffffff"><h1>LIBRARY CATALOGUE</h1></a>
+<div style: align="center", background-color="#ffffff", id="sammix_footer" margin-bottom="20px">
+
+        Copyright © 2018 <a href="#">online library catalog</a> -
+        Designed by <a href="#" target="_parent">sam and sharon</a>
+
+</div>
+  </div>
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff">{{ request.user.username }}<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="">logout</a></li>
+          <li class="divider"></li>
+          <a href="#" style="color: #ffffff" >Sign in</a>
+         <a href="#" style="color: #ffffff">Sign up</a>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>

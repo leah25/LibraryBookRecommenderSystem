@@ -1,0 +1,44 @@
+{% extends 'librarian/base.html' %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.name }} {% else %} Books {% endif %}
+{% endblock %}
+ 
+{% block content %}
+   <div class="container" style="padding-left: 50px>
+      <div class="row" align="center" style="margin-top: 6%" >
+ 
+        <div class="col-sm-8 blog-main">
+ 
+          <div class="blog-post">
+              <div class="row">
+                <div  class="card">
+                        <div class="col-md-6 text-right">
+                            <img src="{% if book.image %} {{ book.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 100px; width: auto">
+                        </div>
+                        <div class="col-md-6" style="padding-left: 50px">
+                           Title:{{ book.book_title }}
+                            <h6> <a href="{{ book.category.get_absolute_url }}">Category:{{ book.category }}</a></h6>
+                            <p class="text-muted"> Author:{{ book.author }}</p>
+
+                            <p>Description:{{ book.description|safe|linebreaksbr }}</p>
+                             <p>Books available:{{ book.stock|safe|linebreaksbr }}</p>
+
+                            <form action="{% url 'cart:cart_add' book.id %}" method="post">
+                                {% csrf_token %}
+                                {{ cart_book_form }}
+                                <input type="submit" value="add to booking cart" class="btn btn-primary">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+              </div>
+ 
+ 
+          </div>
+ 
+        </div>
+      </div>
+ 
+    </div>
+{% endblock %}
